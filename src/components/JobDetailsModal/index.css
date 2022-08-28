@@ -1,0 +1,56 @@
+.job-details{
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--p-color);
+}
+
+.job-details h3 {
+    font-weight: 100;
+    font-size: 1.75rem;
+    margin: 0;
+    padding: 0.5em 0;
+}
+
+.close-btn{
+    position: fixed; 
+    right: 0;
+}
+
+.job-details span {
+    font-weight: bold;
+}
+
+.job-details p {
+    font-weight: 500;
+    margin: 0.5em 0;
+}
+
+.curr-notes{
+    border-bottom: 1px solid var(--p-color);
+}
+
+input {
+    min-height: 3em;
+    margin-top: 2em;
+}
+
+.job-note{
+    margin: 0.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-note button {
+    font-size: 0.6rem;
+}
+
+.job-notes h2{
+    margin: 0;
+    padding: 0.25em 0;
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.job-details-modal{
+    margin: 5% auto;
+}

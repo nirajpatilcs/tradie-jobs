@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import EditJobModal from "../EditJobModal";
+import JobDetailsModal from "../JobDetailsModal";
 import './index.css'
 
 interface Props {
@@ -14,11 +15,19 @@ interface Props {
 
 const JobCard: React.FC<Props> = (props) => {
     const [showEditJob, setShowEditJob] = useState(false); 
+    const [showJobDetails, setShowJobDetails] = useState(false); 
     const [statusOptionValue, setStatusOptionValue] = useState(props.status); // ability to edit status of job
+    const [notes, setNotes] = useState<string[]>([]); 
 
-    //show edit job modal; 
-    function toggleEditModal() {
+
+    //show edit job modal
+    const toggleEditModal = () => {
         setShowEditJob(curr => !curr); 
+    }
+
+    //show notes and job details
+    const toggleJobDetailModal = ()  => {
+        setShowJobDetails(curr => !curr); 
     }
 
     const submitForm = (status: string) => {
@@ -39,11 +48,12 @@ const JobCard: React.FC<Props> = (props) => {
             </div>
 
             <div className="job-actions">
-                <Button name ='notes' />
+                <Button name ='view job/notes' handleClick={toggleJobDetailModal} />
                 <Button name ='edit job' handleClick={toggleEditModal}/>
             </div>
 
             {showEditJob && <EditJobModal submitForm={submitForm}/>}
+            {showJobDetails && <JobDetailsModal jobContent = {props} notes={notes} setNotes={setNotes}/>}
             
         </div>
 
@@ -51,9 +61,3 @@ const JobCard: React.FC<Props> = (props) => {
 }
 
 export default JobCard; 
-
-//unique job identifier 
-// status: 'scheduled' , 'active, 'invoicing' , 'to priced' , 'completed' 
-// creation date and time
-// name, contact details 
-// make notes fo rthe job, trade can have multiple notes 

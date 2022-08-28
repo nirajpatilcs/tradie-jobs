@@ -17,6 +17,8 @@ p{
 
 .job-card-content{
     padding: 1em;
+    margin-top: 0.5em;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.9);
     max-width: max-content;
     display: grid;
