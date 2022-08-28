@@ -1,0 +1,77 @@
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.job-card{
+    margin: auto;
+    margin-top: 5em;
+    max-width: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1em;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.job-card-content{
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: max-content;
+    display: grid;
+    justify-items: start;
+    row-gap: 1em;
+    column-gap: 1em;
+    align-items: center;
+    grid-template-areas: 
+        "client . id"
+        "client . id"
+        "status . date";
+    border-bottom: 1px solid var(--p-color);
+}
+
+
+
+.job-client{
+    grid-area: client;
+}
+.job-name {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-bottom: 0.1em;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.job-contact{
+    letter-spacing: 0.8px;
+}
+
+.job-date-time{
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    letter-spacing: 0.7px;
+    grid-area: date;
+}
+
+.job-status {
+    grid-area: status;
+    font-size: 0.9rem;
+    border: 1px dashed var(--p-color);
+    padding: 0.2em 0.8em;
+    border-radius: 10px;
+
+}
+.job-id{
+    grid-area: id;
+    justify-self: end;
+    font-style: italic;
+    opacity: 0.4;
+    font-size: 2.5rem;
+    
+}
+
+.job-actions{
+    padding: 0 1em 1em 1em;
+}

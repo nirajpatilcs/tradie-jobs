@@ -2,10 +2,14 @@
 
 :root{
   --p-font: "Inter", sans-serif; 
+
+  --bg-color: #F5F5F5; 
+  --p-color: rgb(189, 187, 187); 
 }
 
 body {
   margin: 0;
+  background-color: var(--bg-color);
   font-family: var(--p-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

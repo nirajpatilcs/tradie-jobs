@@ -1,7 +1,9 @@
 import React from "react";
+import Button from "../Button";
+import './index.css'
 
 interface Props {
-    id: string;
+    id: number;
     name: string;
     contact: string; 
     status: string; 
@@ -12,10 +14,25 @@ interface Props {
 
 const JobCard: React.FC<Props> = (props) => {
  return (
-    <div>
-       {props.name} 
-       {props.status}
+    <div className="job-card">
+        <div className="job-card-content">
+            <p className="job-id"> { props.id  ? '0'+props.id : props.id } </p>
+            <p className="job-date-time">Job Created: {props.time} </p>
+            <div className="job-client">
+                <p className="job-name">{props.name} </p>
+                <p className="job-contact"> {props.contact} </p>
+            </div>
+            <p className="job-status"> {props.status} </p>
+        </div>
+
+        <div className="job-actions">
+            <Button name ='notes' />
+            <Button name ='edit job' />
+        </div>
+        
+        
     </div>
+
  )
 }
 
