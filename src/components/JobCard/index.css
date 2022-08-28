@@ -57,6 +57,7 @@ p{
 
 .job-status {
     grid-area: status;
+    text-transform: capitalize;
     font-size: 0.9rem;
     border: 1px dashed var(--p-color);
     padding: 0.2em 0.8em;

@@ -2,12 +2,13 @@ import React from "react";
 import './index.css';
 
 interface Props {
-    name: string; 
+    name: string;
+    handleClick?:  () => void; 
 }
 
 const Button: React.FC<Props> = (props) => {
     return (
-        <button> {props.name} </button>
+        <button type="submit" onClick={props.handleClick}> {props.name} </button>
     ) 
 }
 

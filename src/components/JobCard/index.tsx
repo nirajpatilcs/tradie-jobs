@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
+import EditJobModal from "../EditJobModal";
 import './index.css'
 
 interface Props {
@@ -11,29 +12,42 @@ interface Props {
     time: string, 
 }
 
-
 const JobCard: React.FC<Props> = (props) => {
- return (
-    <div className="job-card">
-        <div className="job-card-content">
-            <p className="job-id"> { props.id  ? '0'+props.id : props.id } </p>
-            <p className="job-date-time">Job Created: {props.time} </p>
-            <div className="job-client">
-                <p className="job-name">{props.name} </p>
-                <p className="job-contact"> {props.contact} </p>
+    const [showEditJob, setShowEditJob] = useState(false); 
+    const [statusOptionValue, setStatusOptionValue] = useState(props.status); // ability to edit status of job
+
+    //show edit job modal; 
+    function toggleEditModal() {
+        setShowEditJob(curr => !curr); 
+    }
+
+    const submitForm = (status: string) => {
+        setStatusOptionValue(status); 
+        toggleEditModal(); 
+    }
+
+    return (
+        <div className="job-card">
+            <div className="job-card-content">
+                <p className="job-id"> { props.id  ? '0'+props.id : props.id } </p>
+                <p className="job-date-time">Job Created: {props.time} </p>
+                <div className="job-client">
+                    <p className="job-name">{props.name} </p>
+                    <p className="job-contact"> {props.contact} </p>
+                </div>
+                <p className="job-status"> {statusOptionValue} </p>
             </div>
-            <p className="job-status"> {props.status} </p>
+
+            <div className="job-actions">
+                <Button name ='notes' />
+                <Button name ='edit job' handleClick={toggleEditModal}/>
+            </div>
+
+            {showEditJob && <EditJobModal submitForm={submitForm}/>}
+            
         </div>
 
-        <div className="job-actions">
-            <Button name ='notes' />
-            <Button name ='edit job' />
-        </div>
-        
-        
-    </div>
-
- )
+    )
 }
 
 export default JobCard; 
