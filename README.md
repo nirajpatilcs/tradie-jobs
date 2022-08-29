@@ -2,6 +2,8 @@
 
 This is an implementation of the front-end for the application that allows a tradie to see their jobs. All the data about the jobs comes from a 'jobData' file located in 'src/assets/jobData.js', ideally this data would be fetched from the backend for individual tradies. 
 
+#### Tech Stack: TypeScript, React.js, HTML&CSS 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
