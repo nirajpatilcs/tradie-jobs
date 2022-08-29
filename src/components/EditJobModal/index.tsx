@@ -28,7 +28,6 @@ const EditJobModal: React.FC<Props> = (props) => {
                 <Button name={'submit'} handleClick={()=>props.submitForm(newStatusVal)}/>
             </div>
         </div>
-
     )
 }
 

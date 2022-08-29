@@ -7,23 +7,40 @@ interface job {
     name: string;
     contact: string; 
     status: string; 
-    date?: Date; 
-    time: string, 
+    time: Date, 
 }
 
 interface Props {
     jobContent: job; 
     notes: string[]; 
     setNotes: (params: any) => any; 
+    toggle: () => void; 
 }
 
 const JobDetailsModal: React.FC<Props> = (props) => {
 
     const inputNoteRef = useRef<HTMLInputElement>(null); 
     const [newNote, setNewNote] = useState<string>(''); 
+    const [editMode, setEditMode ] = useState(false); 
+    const [updateNote, setUpdateNote] = useState<number>(0); 
 
     const editNote = (i: number) => {
-        console.log(i); 
+        inputNoteRef.current?.focus(); 
+        setNewNote(props.notes[i]); 
+        setEditMode(true); 
+        setUpdateNote(i); 
+    }
+
+    const handleUpdate = () => {
+
+        //update notes 
+        let newNotes = [...props.notes]; 
+        newNotes[updateNote] = newNote; 
+        props.setNotes(newNotes); 
+
+        //clear input field 
+        setNewNote(''); 
+        setEditMode(false); 
     }
 
     //map all the notes 
@@ -53,17 +70,19 @@ const JobDetailsModal: React.FC<Props> = (props) => {
         setNewNote(e.target.value); 
     }
 
+
+
     return (
         <div className="modal ">
             <div className="modal-content job-details-modal">
-                <div className="close-btn">x</div>
+                <button className="close-btn" onClick={props.toggle}>x</button>
                 <div className="job-details">
                     <h3>Job Details</h3>
                     <p className="jobid"><span> ID: </span> {props.jobContent.id}</p>
                     <p className="jobname"><span> Name:  </span>{props.jobContent.name}</p>
                     <p className="jobcontact"><span>  Contact:</span> {props.jobContent.contact} </p>
                     <p className="jobcurrstatus"><span>Current Status: </span>  {props.jobContent.status}</p>
-                    <p className="jobdate"> <span>Creation Date/Time: </span> {props.jobContent.time} </p> 
+                    <p className="jobdate"> <span>Creation Date/Time: </span> {props.jobContent.time.toString()} </p> 
                 </div>
 
                 <div className="job-notes">
@@ -73,7 +92,7 @@ const JobDetailsModal: React.FC<Props> = (props) => {
                     </div>
 
                     <input type='text' value={newNote} onChange={handleChange} ref={inputNoteRef} ></input> 
-                    <Button name="Add" handleClick={onClick}></Button>
+                    {editMode ? <Button name="Update" handleClick={handleUpdate}/> : <Button name="Add" handleClick={onClick}/> }
 
                 </div>
 

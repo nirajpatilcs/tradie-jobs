@@ -4,8 +4,6 @@ p{
 }
 
 .job-card{
-    margin: auto;
-    margin-top: 5em;
     max-width: max-content;
     display: flex;
     align-items: center;

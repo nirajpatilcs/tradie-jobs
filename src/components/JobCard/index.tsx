@@ -9,8 +9,7 @@ interface Props {
     name: string;
     contact: string; 
     status: string; 
-    date?: Date; 
-    time: string, 
+    time: Date, 
 }
 
 const JobCard: React.FC<Props> = (props) => {
@@ -39,7 +38,7 @@ const JobCard: React.FC<Props> = (props) => {
         <div className="job-card">
             <div className="job-card-content">
                 <p className="job-id"> { props.id  ? '0'+props.id : props.id } </p>
-                <p className="job-date-time">Job Created: {props.time} </p>
+                <p className="job-date-time">{props.time.toDateString()} </p>
                 <div className="job-client">
                     <p className="job-name">{props.name} </p>
                     <p className="job-contact"> {props.contact} </p>
@@ -53,7 +52,7 @@ const JobCard: React.FC<Props> = (props) => {
             </div>
 
             {showEditJob && <EditJobModal submitForm={submitForm}/>}
-            {showJobDetails && <JobDetailsModal jobContent = {props} notes={notes} setNotes={setNotes}/>}
+            {showJobDetails && <JobDetailsModal jobContent = {props} notes={notes} setNotes={setNotes} toggle={toggleJobDetailModal}/>}
             
         </div>
 

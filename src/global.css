@@ -44,3 +44,31 @@ code {
     max-width: max-content; 
 }
 
+.jobs-container{
+  display: flex;
+  margin: 2em auto;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.App{
+  max-width: 1080px;
+  margin: auto;
+  padding: 0 1em;
+}
+
+.title{
+  font-weight: 100;
+  font-size: 4rem;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--p-color);
+}
+
+.nav{
+  display: flex;
+  column-gap: 1em;
+}
