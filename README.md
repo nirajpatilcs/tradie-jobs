@@ -4,6 +4,8 @@ This is an implementation of the front-end for the application that allows a tra
 
 #### Tech Stack: TypeScript, React.js, HTML&CSS 
 
+#### After cloning, run `npm start` to start the app. See below for more instructions 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
